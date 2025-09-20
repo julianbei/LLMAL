@@ -1,0 +1,42 @@
+{
+  "name": "llmal-vscode",
+  "displayName": "LLMAL — Annotation Language Support",
+  "description": "Highlights @LLMAL blocks and provides snippets/completions for LLMAL annotations.",
+  "version": "0.1.0",
+  "publisher": "exalted-it",
+  "engines": { "vscode": "^1.84.0" },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:llmal.extractBlocks",
+    "onCommand:llmal.toggleHighlight"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "llmal.extractBlocks", "title": "LLMAL: Show Blocks in Current File" },
+      { "command": "llmal.toggleHighlight", "title": "LLMAL: Toggle Highlighting" }
+    ],
+    "snippets": [
+      { "language": "typescript", "path": "./snippets/llmal.code-snippets" },
+      { "language": "javascript", "path": "./snippets/llmal.code-snippets" },
+      { "language": "python", "path": "./snippets/llmal.code-snippets" },
+      { "language": "go", "path": "./snippets/llmal.code-snippets" },
+      { "language": "java", "path": "./snippets/llmal.code-snippets" },
+      { "language": "csharp", "path": "./snippets/llmal.code-snippets" },
+      { "language": "rust", "path": "./snippets/llmal.code-snippets" },
+      { "language": "cpp", "path": "./snippets/llmal.code-snippets" },
+      { "language": "c", "path": "./snippets/llmal.code-snippets" }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/vscode": "^1.84.0",
+    "vsce": "^2.15.0"
+  }
+}
