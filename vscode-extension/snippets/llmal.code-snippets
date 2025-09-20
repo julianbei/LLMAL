@@ -1,0 +1,55 @@
+{
+  "LLMAL JSON Block": {
+    "prefix": ["llmal", "llmal-json"],
+    "body": [
+      "/**",
+      " * @LLMAL",
+      " * {",
+      " *   \"scope\": \"${1|function,class,file,region|}\",
+      " *   \"id\": \"${2:stable-id}\",
+      " *   \"annotations\": [",
+      " *     { \"type\": \"Protect\", \"level\": \"${3|final,frozen,guarded|}\", \"reason\": \"${4:why}\" }",
+      " *   ]",
+      " * }",
+      " * @LLMAL:END",
+      " */"
+    ],
+    "description": "Insert an LLMAL JSON block"
+  },
+  "LLMAL YAML Block": {
+    "prefix": ["llmal-yaml"],
+    "body": [
+      "/**",
+      " * @LLMAL",
+      " * format: yaml",
+      " * scope: ${1|function,class,file,region|}",
+      " * id: ${2:stable-id}",
+      " * annotations:",
+      " *   - type: Protect",
+      " *     level: ${3|final,frozen,guarded|}",
+      " *     reason: ${4:why}",
+      " * @LLMAL:END",
+      " */"
+    ],
+    "description": "Insert an LLMAL YAML block"
+  },
+  "LLMAL Protect + Purpose + Tests": {
+    "prefix": ["llmal-protect"],
+    "body": [
+      "/**",
+      " * @LLMAL",
+      " * {",
+      " *   \"scope\": \"${1:function}\",
+      " *   \"id\": \"${2:name}\",
+      " *   \"annotations\": [",
+      " *     { \"type\": \"Protect\", \"level\": \"final\", \"reason\": \"${3:critical behavior}\" },",
+      " *     { \"type\": \"Purpose\", \"summary\": \"${4:what this does}\", \"spec\": \"${5:docs/spec.md#anchor}\" },",
+      " *     { \"type\": \"NeedsTests\", \"why\": \"${6:edge cases}\", \"coverage\": \"${7|critical-path,lines,branches|}\" }",
+      " *   ]",
+      " * }",
+      " * @LLMAL:END",
+      " */"
+    ],
+    "description": "Protect region with Purpose and NeedsTests"
+  }
+}
